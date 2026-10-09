@@ -105,13 +105,30 @@
   .mark{display:block;width:auto;align-self:flex-start;flex:none;overflow:visible;color:var(--ink)}
   .word{font-family:"Lexend Zetta",-apple-system,Helvetica,Arial,sans-serif;font-weight:200;letter-spacing:0.08em;line-height:1;white-space:nowrap;text-transform:uppercase;}
   .xg{display:inline-block;width:0.899em;height:0.703em;margin-right:0.08em;vertical-align:baseline;overflow:visible}
-  .reg{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.24em;margin-left:0.35em;color:var(--muted)}
   .foot-lockup{display:flex;align-items:center;gap:0.9em;font-size:0.95rem;color:var(--ink);text-decoration:none;}
   .foot-lockup .mark{height:1.25em;color:currentColor}
+
+  /* Arrival motion, per Identity Edition 01 / Motion: diagonals draw, X bars close, M frame rises, then registration mark and wordmark */
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes grow{from{transform:scale(0,1)}}
+  @keyframes growY{from{transform:scale(1,0)}}
+  @keyframes fade{from{opacity:0}}
+  .anim .d{stroke-dasharray:1;stroke-dashoffset:0}
+  .anim .b,.anim .bv{transform-box:fill-box;transform-origin:center}
+  .anim .bv{transform-origin:50% 100%}
+  @media (prefers-reduced-motion:no-preference){
+    .anim .d1{animation:draw .7s .3s cubic-bezier(.6,0,.2,1) both}
+    .anim .d2{animation:draw .7s .6s cubic-bezier(.6,0,.2,1) both}
+    .anim .bx{animation:grow .5s 1.3s cubic-bezier(.6,0,.2,1) both}
+    .anim .bm{animation:growY .5s 1.8s cubic-bezier(.6,0,.2,1) both}
+    .anim .bb{animation:grow .5s 2.1s cubic-bezier(.6,0,.2,1) both}
+    .anim .mk{animation:fade .6s 2.8s both}
+    .wm{animation:fade .8s 3.2s both}
+  }
 </style>
 </head>
 <body>
-<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><clipPath id="cX"><path d="M0 0H100V5.657L97.657 8H100V92H97.657L100 94.343V100H0V94.343L2.343 92H0V8H2.343L0 5.657Z"/></clipPath><clipPath id="cM"><path d="M0 0H5.657L8 2.343V0H92V2.343L94.343 0H100V100H0Z"/></clipPath><symbol id="pipcore" viewBox="0 0 214 100"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="100" height="8"/><rect y="92" width="100" height="8"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="8" height="100"/><rect x="92" width="8" height="100"/><rect y="92" width="100" height="8"/></g></g></symbol><symbol id="pip" viewBox="0 0 236 100"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="100" height="8"/><rect y="92" width="100" height="8"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="8" height="100"/><rect x="92" width="8" height="100"/><rect y="92" width="100" height="8"/></g></g><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></symbol><symbol id="regx" viewBox="218 83 18 18"><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></symbol></defs></svg>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><clipPath id="cX"><path d="M0 0H100V5.657L97.657 8H100V92H97.657L100 94.343V100H0V94.343L2.343 92H0V8H2.343L0 5.657Z"/></clipPath><clipPath id="cM"><path d="M0 0H5.657L8 2.343V0H92V2.343L94.343 0H100V100H0Z"/></clipPath><symbol id="pipcore" viewBox="0 0 214 100"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="100" height="8"/><rect y="92" width="100" height="8"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="8" height="100"/><rect x="92" width="8" height="100"/><rect y="92" width="100" height="8"/></g></g></symbol><symbol id="pip" viewBox="0 0 236 100"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="100" height="8"/><rect y="92" width="100" height="8"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)" fill="currentColor"><path d="M-16 -16L116 116M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect width="8" height="100"/><rect x="92" width="8" height="100"/><rect y="92" width="100" height="8"/></g></g><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></symbol></defs></svg>
 
   <div class="gauge">
     <div class="gauge-head">
@@ -127,7 +144,7 @@
       <div class="gauge-fill" id="fill"></div>
       <div class="gauge-bead" id="bead"><svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><line x1="1.2" y1="1.2" x2="7.8" y2="7.8" stroke="#808080" stroke-width="1.4"/><line x1="7.8" y1="1.2" x2="1.2" y2="7.8" stroke="#808080" stroke-width="1.4"/></svg></div>
     </div>
-    <div class="gauge-readout" aria-hidden="true"><b id="depth">000</b><svg class="reg" viewBox="0 0 18 18"><use href="#regx"/></svg></div>
+    <div class="gauge-readout" aria-hidden="true"><b id="depth">000</b> XM</div>
   </div>
   <button class="mobile-toggle" data-theme-toggle type="button" aria-label="Switch between light and dark" aria-pressed="false">
     <span class="mobile-toggle-line" aria-hidden="true"></span>
@@ -135,9 +152,9 @@
   </button>
 <div class="wrap">
   <header class="hero">
-    <svg class="mark hero-mark" viewBox="0 0 236 100" role="img" aria-label="Fathxm icon"><use href="#pip"/></svg>
+    <svg class="mark hero-mark anim" viewBox="0 0 236 100" role="img" aria-label="Fathxm icon"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="b bx" width="100" height="8" fill="currentColor"/><rect class="b bx" y="92" width="100" height="8" fill="currentColor"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="bv bm" width="8" height="100" fill="currentColor"/><rect class="bv bm" x="92" width="8" height="100" fill="currentColor"/><rect class="b bb" y="92" width="100" height="8" fill="currentColor"/></g></g><g class="mk"><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></g></svg>
     <div class="eyebrow">Subsurface infrastructure advisory</div>
-    <div class="word wordmark" role="img" aria-label="Fathxm">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div>
+    <div class="word wordmark wm" role="img" aria-label="Fathxm">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div>
     <h1 class="hero-head">The most expensive risk in any project is the part no one looked at.</h1>
     <p class="hero-sub">Independent judgment on what lies beneath: underground infrastructure, geospatial truth and the failures that surface too late.</p>
   </header>
