@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='23' y2='23' stroke='%23808080' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='23' y1='9' x2='9' y2='23' stroke='%23808080' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<title>FATHXM | Subsurface infrastructure advisory</title>
+<meta name="description" content="Independent advisory on subsurface infrastructure, risk and geospatial intelligence. The most expensive risk in any project is the part no one looked at.">
+<style>
+
+  :root{color-scheme:light;--bg:#f7f5f0;--ink:#16140f;--muted:#8d8a84;--faint:#b6b3ad;--accent:#808080;--hair:rgba(22,20,15,0.12);--maxw:1080px;}
+  html.dark{--bg:#15120d;--ink:#f1eee7;--muted:#928d85;--faint:#67625b;--hair:rgba(241,238,231,0.14);}
+  html.theme-anim *{transition:background-color .4s ease,color .4s ease,border-color .4s ease,fill .4s ease,stroke .4s ease;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Archivo",-apple-system,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+  .eyebrow{display:flex;align-items:center;gap:16px;font-size:0.7rem;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);}
+  .eyebrow::before{content:"";display:block;width:16px;height:9px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Cpath d='M1.5 1.5L8 8L14.5 1.5' fill='none' stroke='%23808080' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat center/contain;}
+  h1,h2,h3{font-weight:300;line-height:1.12;letter-spacing:-0.01em}
+  .gauge{position:fixed;top:0;right:30px;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:34px;pointer-events:none;z-index:40;}
+  .gauge-head{position:relative;display:flex;justify-content:center;margin-bottom:18px}
+  .gauge-label{writing-mode:vertical-rl;font-size:0.56rem;letter-spacing:0.34em;text-transform:uppercase;color:var(--faint);font-weight:500;}
+  .theme-toggle{position:absolute;right:100%;margin-right:14px;top:0;bottom:0;width:14px;padding:0;border:none;background:transparent;cursor:pointer;pointer-events:auto;}
+  .tt-line{position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:var(--hair);transition:background-color .25s ease;}
+  .theme-toggle:hover .tt-line{background:var(--muted)}
+  .tt-x{position:absolute;left:50%;top:5px;width:9px;height:9px;line-height:0;transform:translate(-50%,-50%);transition:top .3s ease;}
+  html.dark .tt-x{top:calc(100% - 5px)}
+  .tt-label{position:absolute;right:100%;margin-right:8px;transform:translateY(-50%);font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap;opacity:0;transition:opacity .25s ease;pointer-events:none;}
+  .tt-light{top:5px}.tt-dark{top:calc(100% - 5px)}
+  .theme-toggle:hover .tt-label{opacity:1}
+  .gauge-track{position:relative;height:58vh;width:1px;background:var(--hair)}
+  .gauge-fill{position:absolute;top:0;left:0;width:1px;height:0%;background:var(--faint)}
+  .gauge-bead{position:absolute;left:-4px;top:0;width:9px;height:9px;transform:translateY(-50%);display:block;line-height:0;}
+  .gauge-readout{margin-top:16px;font-size:0.62rem;letter-spacing:0.2em;color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums;}
+  .gauge-readout b{color:var(--muted);font-weight:500}
+  .mobile-toggle{display:none;position:fixed;top:18px;right:18px;z-index:50;width:32px;height:36px;border:none;background:transparent;cursor:pointer;pointer-events:auto;align-items:center;justify-content:center;}
+  .mobile-toggle-line{position:absolute;left:50%;top:4px;bottom:4px;width:1px;transform:translateX(-50%);background:var(--hair);}
+  .mobile-toggle-x{position:absolute;left:50%;top:7px;width:9px;height:9px;line-height:0;transform:translate(-50%,-50%);transition:top .3s ease;}
+  html.dark .mobile-toggle-x{top:calc(100% - 7px)}
+  footer{border-top:1px solid var(--hair);padding:64px 0 80px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;}
+  .foot-mark{font-weight:300;font-size:1.1rem;letter-spacing:0.26em;text-transform:uppercase;text-indent:0.26em}
+  .foot-mark a{color:var(--ink);text-decoration:none;}
+  .foot-nav{display:flex;gap:40px;align-items:flex-end;}
+  .foot-nav a{font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--faint);text-decoration:none;font-weight:500;transition:color .3s ease;}
+  .foot-nav a:hover,.foot-nav a.active{color:var(--accent);}
+  .foot-meta{font-size:0.64rem;letter-spacing:0.16em;color:var(--faint);text-align:right;line-height:2;text-transform:uppercase;font-weight:500;}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:760px){
+    .gauge{display:none}
+    .mobile-toggle{display:flex}
+    section{padding:96px 0}
+    .wrap{padding:0 24px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    html.theme-anim *{transition:none}
+  }
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:160px 0 96px;position:relative;border-top:none;}
+  .wordmark{font-weight:300;font-size:clamp(2.6rem,9vw,6rem);letter-spacing:0.26em;text-transform:uppercase;margin:0 0 56px;}
+  .wordmark .wm-x{display:inline-block;width:0.677em;height:0.686em;vertical-align:baseline;margin-right:0.25em;}
+  .hero-head{font-size:clamp(1.6rem,3.8vw,2.9rem);font-weight:300;line-height:1.18;max-width:20ch;margin-bottom:32px;color:var(--ink);}
+  .hero-sub{font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--muted);max-width:54ch;font-weight:400;line-height:1.6;}
+  section{padding:140px 0;border-top:1px solid var(--hair)}
+  .lede{font-size:clamp(1.45rem,3vw,2.15rem);line-height:1.32;font-weight:300;max-width:24ch;color:var(--ink);}
+  .lede .accent{color:var(--accent)}
+  .body-col{max-width:58ch;color:var(--muted);font-size:1.08rem;line-height:1.7}
+  .body-col p+p{margin-top:1.3em}
+  .section-head{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:300;margin-top:28px;max-width:22ch;color:var(--ink);}
+  .areas{display:grid;grid-template-columns:repeat(2,1fr);column-gap:72px;row-gap:80px;margin-top:88px;}
+  .area .num{display:flex;align-items:center;gap:14px;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:22px;}
+  .area .num::before{content:"";display:block;width:14px;height:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Cpath d='M1.5 1.5L8 8L14.5 1.5' fill='none' stroke='%23808080' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat center/contain}
+  .area h3{font-size:1.5rem;font-weight:300;margin-bottom:16px;color:var(--ink)}
+  .area p{font-size:1rem;color:var(--muted);line-height:1.65}
+  .creds{list-style:none;margin-top:64px;border-top:1px solid var(--hair)}
+  .creds li{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--hair);align-items:baseline;}
+  .creds .role{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+  .creds .detail{font-size:1.18rem;font-weight:300;color:var(--ink)}
+  .creds .detail span{color:var(--muted);font-size:1rem}
+  .creds .detail a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:1px;transition:color .3s ease}
+  .creds .detail a:hover{color:var(--accent)}
+  .contact-line{font-size:1.15rem;color:var(--muted);max-width:48ch;margin:28px 0 56px;font-weight:400}
+  .contact-grid{display:flex;flex-wrap:wrap;gap:64px}
+  .contact-item .k{font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:12px;font-weight:500;}
+  .contact-item .v{font-size:1.3rem;font-weight:300}
+  .contact-item a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px;transition:color .3s ease}
+  .contact-item a:hover{color:var(--accent)}
+  .contact-item a.social{border-bottom:none;padding-bottom:0;display:inline-flex}
+  .contact-item a.social svg{width:24px;height:24px;display:block}
+  @media(max-width:760px){
+    .hero{padding-top:100px}
+    .areas{grid-template-columns:1fr;row-gap:64px}
+    .creds li{grid-template-columns:1fr;gap:8px}
+    .wordmark{letter-spacing:0.2em}
+  }
+</style>
+</head>
+<body>
+
+  <div class="gauge">
+    <div class="gauge-head">
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch between light and dark" aria-pressed="false">
+        <span class="tt-line" aria-hidden="true"></span>
+        <span class="tt-label tt-light" aria-hidden="true">Light</span>
+        <span class="tt-label tt-dark" aria-hidden="true">Dark</span>
+        <span class="tt-x" aria-hidden="true"><svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><line x1="1.2" y1="1.2" x2="7.8" y2="7.8" stroke="#808080" stroke-width="1.4"/><line x1="7.8" y1="1.2" x2="1.2" y2="7.8" stroke="#808080" stroke-width="1.4"/></svg></span>
+      </button>
+      <span class="gauge-label" aria-hidden="true">FATHXMS</span>
+    </div>
+    <div class="gauge-track" aria-hidden="true">
+      <div class="gauge-fill" id="fill"></div>
+      <div class="gauge-bead" id="bead"><svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><line x1="1.2" y1="1.2" x2="7.8" y2="7.8" stroke="#808080" stroke-width="1.4"/><line x1="7.8" y1="1.2" x2="1.2" y2="7.8" stroke="#808080" stroke-width="1.4"/></svg></div>
+    </div>
+    <div class="gauge-readout" aria-hidden="true"><b id="depth">000</b> XM</div>
+  </div>
+  <button class="mobile-toggle" data-theme-toggle type="button" aria-label="Switch between light and dark" aria-pressed="false">
+    <span class="mobile-toggle-line" aria-hidden="true"></span>
+    <span class="mobile-toggle-x" aria-hidden="true"><svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><line x1="1.2" y1="1.2" x2="7.8" y2="7.8" stroke="#808080" stroke-width="1.4"/><line x1="7.8" y1="1.2" x2="1.2" y2="7.8" stroke="#808080" stroke-width="1.4"/></svg></span>
+  </button>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Subsurface infrastructure advisory</div>
+    <div class="wordmark" aria-label="Fathxm">FATH<svg class="wm-x" viewBox="0 0 677 686" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="40" y1="28" x2="638" y2="658" stroke="currentColor" stroke-width="78"/><line x1="638" y1="28" x2="40" y2="658" stroke="currentColor" stroke-width="78"/></svg>M</div>
+    <h1 class="hero-head">The most expensive risk in any project is the part no one looked at.</h1>
+    <p class="hero-sub">Independent judgment on what lies beneath: underground infrastructure, geospatial truth and the failures that surface too late.</p>
+  </header>
+  <section id="thesis">
+    <div class="eyebrow reveal">What's below</div>
+    <p class="lede reveal" style="margin-top:28px">A fathom is a measure of depth. Most infrastructure decisions are made about a layer <span class="accent">nobody has measured</span>.</p>
+    <div class="body-col reveal" style="margin-top:40px">
+      <p>Utility records are wrong, incomplete or untested. Billions in capital and decades of liability ride on plans drawn from guesswork and copied forward without anyone going to look. The surface gets surveyed to the millimetre. The ground beneath it gets a hopeful PDF.</p>
+      <p>Fathxm brings practitioner judgment to that gap: the distance between what a drawing claims and what the ground actually holds.</p>
+    </div>
+  </section>
+  <section id="practice">
+    <div class="eyebrow reveal">The work</div>
+    <h2 class="section-head reveal">Where the subsurface is the deciding factor.</h2>
+    <div class="areas">
+      <div class="area reveal"><span class="num">Governance</span><h3>Subsurface authority</h3><p>Frameworks for knowing what's underground at scale. One-call notification, national underground asset registers, dig-safe regimes and the governance that separates a register from a liability. Pitched at sovereign and utility scale.</p></div>
+      <div class="area reveal"><span class="num">Diligence</span><h3>Infrastructure feasibility</h3><p>Siting and due diligence for assets that can't afford a surprise: power, water, data centres, major civils. Geospatial validation of what the records say, and a clear read on what they leave out.</p></div>
+      <div class="area reveal"><span class="num">Risk</span><h3>Risk and mispricing</h3><p>Underground infrastructure risk for insurers and infrastructure funds. The exposure that doesn't show up in a model because no one has data on it, and what it costs when it finally surfaces.</p></div>
+      <div class="area reveal"><span class="num">Spatial</span><h3>Geospatial intelligence</h3><p>Turning fragmented utility records into validated spatial truth. Mosaicking, georeferencing and ground-controlled accuracy on the plans that decisions actually get made from.</p></div>
+    </div>
+  </section>
+  <section id="approach">
+    <div class="eyebrow reveal">How this works</div>
+    <p class="lede reveal" style="margin-top:28px">Authority here is earned the hard way: <span class="accent">judgment under real consequences</span>.</p>
+    <div class="body-col reveal" style="margin-top:40px">
+      <p>Not desk research. Fourteen years building Reveal from hand-painted ground markings into a subsurface mapping business meant being right or wrong with safety and money on the line. That's the only examiner that counts.</p>
+      <p>The judgment Fathxm sells is the kind that can't be synthesised from papers: first-hand observation, taste, and a track record of calling it correctly when it mattered. Credential as proof of having read about the problem is worth less than evidence of having lived inside it.</p>
+    </div>
+  </section>
+  <section id="background">
+    <div class="eyebrow reveal">Track record</div>
+    <ul class="creds reveal">
+      <li><span class="role">Founder</span><span class="detail"><a href="https://reveal.nz">Reveal</a> + <a href="https://undermaps.com">Undermaps</a> <span>| subsurface mapping, founded 2012</span></span></li>
+      <li><span class="role">Founder</span><span class="detail"><a href="https://onepointfive.nz">Onepointfive</a> <span>| climate risk and ESG reporting</span></span></li>
+      <li><span class="role">Thought leader</span><span class="detail">Smart City Council <span>| global, underground infrastructure</span></span></li>
+      <li><span class="role">Recognition</span><span class="detail">EY Entrepreneur of the Year NZ <span>| finalist, 2023</span></span></li>
+    </ul>
+  </section>
+  <section id="contact">
+    <div class="eyebrow reveal">Engage</div>
+    <h2 class="section-head reveal">Selective engagements.</h2>
+    <p class="contact-line reveal">Fathxm takes a small number of engagements where the ground is the variable that decides the outcome. If that's the problem, start there.</p>
+    <div class="contact-grid reveal">
+      <div class="contact-item"><span class="k">Email</span><span class="v"><a href="mailto:sam@fathxm.com">sam@fathxm.com</a></span></div>
+      <div class="contact-item"><span class="k">Connect</span><span class="v"><a class="social" href="https://www.linkedin.com/in/sam-wiffen-2581332b/" target="_blank" rel="noopener" aria-label="Sam Wiffen on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></span></div>
+    </div>
+  </section>
+  <footer>
+    <div class="foot-mark"><a href="/">FATHXM</a></div>
+    <nav class="foot-nav"><a href="/store">Store</a></nav>
+    <div class="foot-meta">Depth measured, not assumed.<br>&copy; <span id="yr"></span> Fathxm</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var fill=document.getElementById('fill'),bead=document.getElementById('bead'),depth=document.getElementById('depth');
+  function updateGauge(){var h=document.documentElement.scrollHeight-window.innerHeight;var p=h>0?Math.min(window.scrollY/h,1):0;var pct=(p*100).toFixed(0);if(fill)fill.style.height=pct+'%';if(bead)bead.style.top=pct+'%';if(depth)depth.textContent=String(Math.round(p*480)).padStart(3,'0');}
+  window.addEventListener('scroll',updateGauge,{passive:true});
+  window.addEventListener('resize',updateGauge);updateGauge();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  (function(){
+    var root=document.documentElement;
+    function applyDark(dark){root.classList.toggle('dark',dark);document.querySelectorAll('[data-theme-toggle]').forEach(function(btn){btn.setAttribute('aria-pressed',dark?'true':'false');});}
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(btn){btn.addEventListener('click',function(){applyDark(!root.classList.contains('dark'));});});
+    if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('theme-anim');});});}
+  })();
+</script>
+</body>
+</html>
