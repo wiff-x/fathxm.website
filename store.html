@@ -95,6 +95,9 @@
   .xg{display:inline-block;width:0.899em;height:0.703em;margin-right:0.08em;vertical-align:baseline;overflow:visible}
   .foot-lockup{display:flex;align-items:center;gap:0.9em;font-size:0.95rem;color:var(--ink);text-decoration:none;}
   .foot-lockup .mark{height:1.25em;color:currentColor}
+  .home-link{display:block;width:max-content;max-width:100%;align-self:flex-start;color:inherit;text-decoration:none;transition:opacity .3s ease}
+  .home-link:hover{opacity:.7}
+  .home-link:focus-visible{outline:1px solid var(--muted);outline-offset:6px}
 </style>
 </head>
 <body>
@@ -122,9 +125,9 @@
   </button>
 <div class="wrap">
   <header class="store-header reveal">
-    <svg class="mark store-mark" viewBox="0 0 236 100" role="img" aria-label="Fathxm icon"><use href="#pip"/></svg>
+    <a class="home-link" href="/" aria-label="Fathxm home"><svg class="mark store-mark" viewBox="0 0 236 100" aria-hidden="true"><use href="#pip"/></svg></a>
     <div class="eyebrow">Infrastructure advisory</div>
-    <div class="word store-wordmark" role="img" aria-label="Fathxm Store">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div>
+    <a class="home-link" href="/" aria-label="Fathxm home"><div class="word store-wordmark" aria-hidden="true">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div></a>
     <div class="store-sub"><a href="/">Advisory</a> &nbsp;/&nbsp; Store</div>
   </header>
   <div class="product-grid">

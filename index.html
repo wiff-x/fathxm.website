@@ -127,6 +127,9 @@
     .anim .mk{animation:fade .6s 2.8s both}
     .wm{animation:fade .8s 3.2s both}
   }
+  .home-link{display:block;width:max-content;max-width:100%;align-self:flex-start;color:inherit;text-decoration:none;transition:opacity .3s ease}
+  .home-link:hover{opacity:.7}
+  .home-link:focus-visible{outline:1px solid var(--muted);outline-offset:6px}
 </style>
 </head>
 <body>
@@ -154,9 +157,9 @@
   </button>
 <div class="wrap">
   <header class="hero">
-    <svg class="mark hero-mark anim" viewBox="0 0 236 100" role="img" aria-label="Fathxm icon"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="b bx" width="100" height="8" fill="currentColor"/><rect class="b bx" y="92" width="100" height="8" fill="currentColor"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="bv bm" width="8" height="100" fill="currentColor"/><rect class="bv bm" x="92" width="8" height="100" fill="currentColor"/><rect class="b bb" y="92" width="100" height="8" fill="currentColor"/></g></g><g class="mk"><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></g></svg>
+    <a class="home-link" href="/" aria-label="Fathxm home"><svg class="mark hero-mark anim" viewBox="0 0 236 100" aria-hidden="true"><g transform="rotate(90 50 50)"><g clip-path="url(#cX)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="b bx" width="100" height="8" fill="currentColor"/><rect class="b bx" y="92" width="100" height="8" fill="currentColor"/></g></g><g transform="translate(114 0)"><g clip-path="url(#cM)"><path class="d d1" pathLength="1" d="M-16 -16L116 116" stroke="currentColor" stroke-width="8" fill="none"/><path class="d d2" pathLength="1" d="M116 -16L-16 116" stroke="currentColor" stroke-width="8" fill="none"/><rect class="bv bm" width="8" height="100" fill="currentColor"/><rect class="bv bm" x="92" width="8" height="100" fill="currentColor"/><rect class="b bb" y="92" width="100" height="8" fill="currentColor"/></g></g><g class="mk"><circle cx="227" cy="92" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M224.2 89.2L229.8 94.8M229.8 89.2L224.2 94.8" stroke="currentColor" stroke-width="1.6"/></g></svg></a>
     <div class="eyebrow">Infrastructure advisory</div>
-    <div class="word wordmark wm" role="img" aria-label="Fathxm">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div>
+    <a class="home-link" href="/" aria-label="Fathxm home"><div class="word wordmark wm" aria-hidden="true">FATH<svg class="xg" viewBox="0 0 899 703" aria-hidden="true"><path d="M114.95 21.48L792.05 681.52M792.05 21.48L114.95 681.52" stroke="currentColor" stroke-width="60" fill="none"/></svg>M</div></a>
     <h1 class="hero-head">You&rsquo;re missing the bigger picture.</h1>
     <div class="hero-sub">
       <p>Many infrastructure problems begin with how decisions are made. Understanding the engineering is essential. Understanding what drives the decision is just as important.</p>
